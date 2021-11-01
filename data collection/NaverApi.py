@@ -3,7 +3,6 @@ from pymongo.errors import BulkWriteError
 import json
 import requests
 from requests.exceptions import SSLError
-import pandas as pd
 from datetime import datetime, timedelta
 import pytz
 
@@ -67,6 +66,7 @@ class News:
         return datas
 
     def save(self, collection, docs):
+        collection.remove()
         result = 'success'
         collection.create_index([('link', 1)], unique=True)
         try:

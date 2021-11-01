@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup
 import NaverApi
 from Scrapping import Scrapping
 from datetime import datetime
-import pandas as pd
 
 
 def daily_sentiment(db):
