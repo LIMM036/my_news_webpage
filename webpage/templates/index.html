@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="https://kr.object.ncloudstorage.com/내버킷명/favicon.ico" type="image/x-icon">
     <!-- meta data - og tag -->
     <meta property="og:title" content="Hey Volleyball News" />
-    <meta property="og:description" content="매일 업데이트되는 큐레이션된 배구뉴스와 음성 오디오북" />
     <meta property="og:image"
         content="https://images.unsplash.com/photo-1588492069485-d05b56b2831d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" />
     <title>Hey Volleyball news</title>
@@ -25,8 +24,6 @@
         integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
         crossorigin="anonymous"></script>
 
-    <!-- calamasi css -->
-    <link rel="stylesheet" href="https://kr.object.ncloudstorage.com/내버킷명/asset/calamansi.min.css">
 
     <style>
         .bd-placeholder-img {
@@ -88,17 +85,12 @@
                     }
                 })
                 .then(jsonData => {
-                    // for (data of jsonData['sentiments']) {
-                    //     sentiment = { title: data['title'], start: 'start' }
-                    //     sentiments.push(sentiment)
-                    // }
-                    sentiments = jsonData['sentiments']
 
                     var calendarEl = document.getElementById('calendar');
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         height: 500,
                         initialView: 'dayGridMonth',
-                        events: sentiments
+                        events: jsonData['sentiments']
                     });
                     calendar.render();
 
@@ -126,17 +118,6 @@
                         <h4 class="text-white">About</h4>
                         <p class="text-muted">한 눈에 배구 정보 모아보기 </p>
                     </div>
-
-
-                    <!-- Contact 정보 -->
-                    <!-- <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                            <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
-                        </ul>
-                    </div> -->
                 </div>
                 <!--상단 네비게이션 토글 코드 -->
             </div>
@@ -162,12 +143,6 @@
                     <h1 class="fw-light">Hey Volleyball News</h1>
                     <p class="lead white-text">매일 전날의 배구 뉴스를 빠르게 배달합니다! <br> 내 손 안에 배구 큐레이션 뉴스!
                     <div class="blue"> #한국배구 #여자배구 #V리그 #KOVO</div>
-                    </p>
-                    <p>
-                        <!-- Audio player -->
-                    <div id="calamansi-player-1">
-                        Loading player...
-                    </div>
                     </p>
                 </div>
             </div>
